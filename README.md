@@ -1,34 +1,63 @@
 # MotionStudio
 
-Laboratorio de exploración visual.  
-Ejercicios prácticos para dominar animaciones y microinteracciones en iOS.
+**Laboratorio de animaciones nativas, microinteracciones y feedback háptico.**
+
+`MotionStudio` es un espacio de experimentación visual. Permite validar, comparar e iterar microinteracciones con SwiftUI y UIKit. Ideal para explorar gestos, transiciones, curvas de animación y efectos hápticos en un entorno desacoplado del producto final.
 
 ---
 
 ## Propósito
 
-Dominar las bases de motion design en SwiftUI, desde animaciones simples hasta transiciones avanzadas.
+- Validar patrones de animación en interfaces reales.
+- Experimentar con gestos, transiciones y respuesta táctil.
+- Documentar decisiones visuales a través del código.
+- Servir como base para definir estándares visuales del producto.
 
 ---
 
 ## Contenido
 
-- Animaciones de entrada/salida
-- Microinteracciones con feedback háptico
-- Motion combinadas y custom transitions
-- Integración con gestos
+- Ejemplos de animaciones contextuales.
+- Pruebas de respuesta háptica (`UIFeedbackGenerator`).
+- Microinteracciones específicas de UI.
+- Transiciones entre vistas controladas.
+- Implementaciones en SwiftUI y UIKit.
 
 ---
 
-## Arquitectura
+## Pruebas
 
-- Basado en `MotionKit`
-- Cada escena es autocontenida y testeable
-- Usado en `ProductSuiteApp` como showcase
+El módulo incluye pruebas automáticas para:
+
+| Componente              | Tipo de prueba              |
+|------------------------|-----------------------------|
+| Transiciones           | Snapshot + validación lógica|
+| Gestos                 | Unitarias (condicionales)   |
+| Feedback háptico       | Unitarias                   |
+
+```swift
+func testHapticFeedbackGenerator() {
+    let feedback = HapticEngine.preview()
+    XCTAssertNotNil(feedback)
+}
+```
 
 ---
 
-## Ideal para:
+## Integración
 
-- Pulir detalles visuales de producto
-- Comprender interacción + movimiento
+Este módulo se visualiza e integra desde `ProductSuiteApp`. No se exporta como framework reutilizable, sino como espacio de exploración visual controlada.
+
+---
+
+## Requisitos
+
+- iOS 15+
+- Swift 6
+- Swift Package Manager
+
+---
+
+## Licencia
+
+MIT © Matías Adrián Molina
